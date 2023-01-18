@@ -1,0 +1,16 @@
+{
+    "CowA101": {
+        "age": "12",
+        "breed": "A1",
+        "grade": "Japanese Black",
+        "farmerName": "Ahmad",
+        "farmLoc": "Japan",
+        "halalCareMethod": "halal",
+        "butcherName": "Rahim",
+        "butcherLoc": "Malaysia",
+        "halalslaughterMethod": "Haram",
+        "imgRef": "A1refpic",
+        "dateDistribute": "12 Dec 2020",
+        "availability": false
+    }
+}

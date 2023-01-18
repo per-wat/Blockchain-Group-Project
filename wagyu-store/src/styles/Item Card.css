@@ -1,0 +1,134 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.card {
+    width: 190px;
+    transform: scale(1.3);
+    padding: .8em;
+    background: var(--text-bg-color);
+    position: relative;
+    overflow: visible;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    border-radius: 8px;
+}
+
+.card-img {
+    width: 100%;
+    height: 40%;
+    padding-bottom: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: .5rem;
+    transition: .3s ease;
+}
+
+.card-img img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.card-footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+
+/*Text*/
+.text-title {
+    font-weight: 900;
+    font-size: 1.2em;
+    line-height: 1.5;
+    color: var(--text-body-color);
+}
+
+.text-body {
+    font-size: .9em;
+    color: var(--text-head-color);
+}
+
+.halal {
+    color: #3ab795;
+    font-weight: bold;
+}
+
+.haram {
+    color: #f44336;
+    font-weight: bold;
+}
+
+/*Button*/
+.card-button {
+    border: 1px solid var(--text-head-color);
+    display: flex;
+    padding: .3em;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: .3s ease-in-out;
+}
+
+/*Hover*/
+.card-img:hover {
+    transform: scale(1.15);
+    box-shadow: rgba(226, 196, 63, 0.25) 0px 13px 47px -5px, rgba(180, 71, 71, 0.3) 0px 8px 16px -8px;
+}
+
+.card-button:hover {
+    border: 1px solid var(--dark-gray);
+    background-color: var(--dark-gray);
+}
+
+.info-btn {
+    width: 450px;
+    height: 450px;
+}
+
+.modal {
+    font-size: 12px;
+}
+
+.modal>.header {
+    width: 100%;
+    border-bottom: 1px solid gray;
+    font-size: 18px;
+    text-align: center;
+    padding: 5px;
+}
+
+.modal>.content {
+    width: 100%;
+    padding: 10px 5px;
+}
+
+.modal>.actions {
+    width: 100%;
+    padding: 10px 5px;
+    margin: auto;
+    text-align: center;
+}
+
+.modal>.close {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    padding: 2px 5px;
+    line-height: 20px;
+    right: -10px;
+    top: -10px;
+    font-size: 24px;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #cfcece;
+}
