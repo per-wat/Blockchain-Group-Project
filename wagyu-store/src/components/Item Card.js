@@ -1,6 +1,6 @@
 import data from "./Data Sample.json";
 import { useState } from "react";
-import Popup from 'reactjs-popup';
+import Popup from "reactjs-popup";
 import "../styles/Item Card.css";
 import "../styles/variables.css";
 import lottie from "lottie-web";
@@ -21,12 +21,32 @@ function ItemCard(props) {
         closeOnDocumentClick
         onClose={() => setOpenPopup(false)}
       >
-        <div className="modal">
-          <div className="content">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae
-            magni omnis delectus nemo, maxime molestiae dolorem numquam
-            mollitia, voluptate ea, accusamus excepturi deleniti ratione
-            sapiente! Laudantium, aperiam doloribus. Odit, aut.
+        <div className="modal-header">{data.CowA101.grade}</div>
+        <div className="modal-container">
+          <div className="modal-img">
+            <img
+              src={require("../assets/CowA101.webp")}
+              alt={data.CowA101.grade}
+            />
+          </div>
+          <div className="modal-info">
+            <div>
+              <p>Breed: {data.CowA101.breed}</p>
+              <p>Age: {data.CowA101.age}</p>
+              {data.CowA101.halalCareMethod.toLowerCase() === "halal" &&
+              data.CowA101.halalslaughterMethod.toLowerCase() === "halal" ? (
+                <p className=" halal">Halal</p>
+              ) : (
+                <p className=" haram">Haram</p>
+              )}
+              <p>Date Distributed: {data.CowA101.dateDistribute}</p>
+            </div>
+            <div>
+              <p>Farmer Name: {data.CowA101.farmerName}</p>
+              <p>Farmer Location: {data.CowA101.farmerLoc}</p>
+              <p>Butcher Name: {data.CowA101.butcherName}</p>
+              <p>Butcher Location: {data.CowA101.butcherLoc}</p>
+            </div>
           </div>
         </div>
       </Popup>
