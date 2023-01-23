@@ -1,4 +1,3 @@
-import data from "./Data Sample.json";
 import { useState } from "react";
 import Popup from "reactjs-popup";
 import "../styles/Item Card.css";
@@ -11,41 +10,44 @@ import { defineElement } from "lord-icon-element";
 defineElement(lottie.loadAnimation);
 
 function ItemCard(props) {
-  const { img } = props;
+  const {age, breed, grade,
+    farmerName, farmLoc, halalCareMethod,
+    butcherName, butcherLoc, halalslaughterMethod,
+    imgRef, dateDistribute, availability} = props.data;
   const [openPopup, setOpenPopup] = useState(false);
 
   return (
-    <div className="container">
+    <div>
       <Popup
         open={openPopup}
         closeOnDocumentClick
         onClose={() => setOpenPopup(false)}
       >
-        <div className="modal-header">{data.CowA101.grade}</div>
+        <div className="modal-header">{grade}</div>
         <div className="modal-container">
           <div className="modal-img">
             <img
-              src={require("../assets/CowA101.webp")}
-              alt={data.CowA101.grade}
+              src= {require("../assets/CowA101.webp")}
+              alt={grade}
             />
           </div>
           <div className="modal-info">
             <div>
-              <p>Breed: {data.CowA101.breed}</p>
-              <p>Age: {data.CowA101.age}</p>
-              {data.CowA101.halalCareMethod.toLowerCase() === "halal" &&
-              data.CowA101.halalslaughterMethod.toLowerCase() === "halal" ? (
+              <p>Breed: {breed}</p>
+              <p>Age: {age}</p>
+              {halalCareMethod.toLowerCase() === "halal" &&
+              halalslaughterMethod.toLowerCase() === "halal" ? (
                 <p className=" halal">Halal</p>
               ) : (
                 <p className=" haram">Haram</p>
               )}
-              <p>Date Distributed: {data.CowA101.dateDistribute}</p>
+              <p>Date Distributed: {dateDistribute}</p>
             </div>
             <div>
-              <p>Farmer Name: {data.CowA101.farmerName}</p>
-              <p>Farmer Location: {data.CowA101.farmerLoc}</p>
-              <p>Butcher Name: {data.CowA101.butcherName}</p>
-              <p>Butcher Location: {data.CowA101.butcherLoc}</p>
+              <p>Farmer Name: {farmerName}</p>
+              <p>Farmer Location: {farmLoc}</p>
+              <p>Butcher Name: {butcherName}</p>
+              <p>Butcher Location: {butcherLoc}</p>
             </div>
           </div>
         </div>
@@ -53,22 +55,22 @@ function ItemCard(props) {
       <div className="card">
         <div className="card-img">
           <img
-            src={require("../assets/CowA101.webp")}
-            alt={data.CowA101.grade}
+            src= {require("../assets/CowA101.webp")}
+            alt={grade}
           />
         </div>
         <div className="card-info">
-          <p className="text-title">{data.CowA101.grade}</p>
-          <p className="text-body">Breed: {data.CowA101.breed}</p>
-          <p className="text-body">Age: {data.CowA101.age}</p>
-          {data.CowA101.halalCareMethod.toLowerCase() === "halal" &&
-          data.CowA101.halalslaughterMethod.toLowerCase() === "halal" ? (
+          <p className="text-title">{grade}</p>
+          <p className="text-body">Breed: {breed}</p>
+          <p className="text-body">Age: {age}</p>
+          {halalCareMethod.toLowerCase() === "halal" &&
+          halalslaughterMethod.toLowerCase() === "halal" ? (
             <p className="text-body halal">Halal</p>
           ) : (
             <p className="text-body haram">Haram</p>
           )}
           <p className="text-body">
-            Date Distributed: {data.CowA101.dateDistribute}
+            Date Distributed: {dateDistribute}
           </p>
         </div>
         <div className="card-footer">

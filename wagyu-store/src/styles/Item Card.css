@@ -1,13 +1,5 @@
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 100px;
-}
-
 .card {
     width: 190px;
-    transform: scale(1.3);
     padding: .8em;
     background: var(--text-bg-color);
     position: relative;
