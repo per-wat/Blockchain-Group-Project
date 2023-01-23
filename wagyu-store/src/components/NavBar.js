@@ -15,7 +15,7 @@ const NavBar = () => {
       </div>
       <div className="navbar-right">
         <button className="signup" onClick={() => navigate("/login")}>
-          Login
+          Login / Register
           <div className="arrow-wrapper">
             <div className="arrow"></div>
           </div>

@@ -3,6 +3,7 @@ import ItemCard from "./components/Item Card";
 import NavBar from "./components/NavBar";
 import Homepage from "./components/Homepage";
 import Login from "./components/Login";
+import Register from "./components/Register";
 import "./styles/App.css"
 import "./styles/variables.css"
 
@@ -15,6 +16,7 @@ function App() {
           <Route path="/navbar" element={<NavBar/>} />
           <Route path="/itemcard" element={<ItemCard/>} />
           <Route path="/login" element={<Login/>} />
+          <Route path="/register" element={<Register/>} />
         </Routes>
       </Router>
     </div>
