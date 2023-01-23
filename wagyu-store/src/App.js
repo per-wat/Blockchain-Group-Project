@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Profile from "./components/Profile";
 import AddWagyu from "./components/Add Wagyu";
+import AddManu from "./components/Add Manu";
 import "./styles/App.css"
 import "./styles/variables.css"
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/register" element={<Register/>} />
           <Route path="/profile" element={<Profile/>} />
           <Route path="/addwagyu" element={<AddWagyu/>} />
+          <Route path="/addmanu" element={<AddManu/>} />
         </Routes>
       </Router>
     </div>
