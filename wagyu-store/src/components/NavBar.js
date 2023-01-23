@@ -1,18 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/NavBar.css";
 import Logo from "../assets/logo.png";
 
 const NavBar = () => {
+
+  const navigate = useNavigate();
+
   return (
     <div className="navbar">
       <div className="logo">
-        <Link to="">
+        <Link to="/">
           <img src={Logo} alt="logo"/>
         </Link>
       </div>
       <div className="navbar-right">
-        <button className="signup">
-          Sign up
+        <button className="signup" onClick={() => navigate("/login")}>
+          Login
           <div className="arrow-wrapper">
             <div className="arrow"></div>
           </div>

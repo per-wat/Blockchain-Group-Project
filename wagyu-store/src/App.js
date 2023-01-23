@@ -14,7 +14,7 @@ function App() {
           <Route exact path="/" element={<Homepage />} />
           <Route path="/navbar" element={<NavBar/>} />
           <Route path="/itemcard" element={<ItemCard/>} />
-          <Route path="/register" element={<Login/>} />
+          <Route path="/login" element={<Login/>} />
         </Routes>
       </Router>
     </div>

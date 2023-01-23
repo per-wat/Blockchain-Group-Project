@@ -6,7 +6,7 @@ import data from "./Data Sample.json";
 const Homepage = () => {
 
     return (
-        <div className="container">
+        <div className="homepage-container">
             <NavBar/>
             <div className="card-container">
                 {Object.values(data).map((item)=>{
