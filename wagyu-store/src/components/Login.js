@@ -47,7 +47,7 @@ function Login() {
               <br />
               <br />
               <a href="#">Forgot Password?</a>
-              <a href="#">Sign Up</a>
+              <a href="/register">Sign Up</a>
             </div>
 
             <input type="submit" value="Login" className="c" />
