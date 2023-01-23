@@ -24,6 +24,9 @@ struct Manufacturer {
 //Contract to create, update and store the information of wagyu into struct datastructure
 contract WagyuInfo {
 
+  //array of ID of all wagyu
+  string[] wID;
+
   //mapping the struct datastructure to one string reference
   mapping(string => Wagyu) public wagyu;
   mapping(string => Manufacturer) public manufacturer;
@@ -37,6 +40,7 @@ contract WagyuInfo {
   //this function is to add information Wagyu Cow Care into struct Wagyu
   function addWagyu (string memory wagyuID, uint256 age, string memory breed, string memory grade, string memory farmerName,  string memory farmLoc, 
   string memory halalCareMethod) public {
+    wID.push(wagyuID);
     Wagyu memory newWagyu;
     newWagyu.age = age;
     newWagyu.breed = breed;
@@ -77,44 +81,5 @@ contract WagyuInfo {
   constructor(){
     addWagyu("CowA101", 12, "A1", "Japanese Black", "Ahmad","Japan","halal");
     addManufacturer("CowA101", "Rahim", "Haram","A1refpic","12 Dec 2020");
-  }
-}
-
-contract Transaction{
-
-  // Mapping of addresses to balance
-  mapping(address => uint256) public balances;
-  mapping(string => Manufacturer) public manufacturer;
-
-  // Check either the Wagyu meat has been buy or not
-  modifier isBought(string memory wagyuID) {
-    require (!manufacturer[wagyuID].availability, "The meat has been bought");
-    _;
-  }
-
-  // Event to be emitted when a transaction is made
-  event WagyuBought(address from, address to, uint256 value);
-
-  //Function to change the availability of Wagyu meat
-  function wagyuUnavailability (string memory wagyuID) public{
-    manufacturer[wagyuID].availability = false;
-  }
-
-  // Function to make a transaction from one address to another
-  function requestBuy(string memory wagyuID, address payable _to, uint256 _value) public payable isBought(wagyuID){
-
-    // Check that the sender has enough balance to make the transaction
-    require(msg.value >= _value, "Insufficient balance");
-    
-    // Transfer the Ether from the sender to the recipient
-    _to.transfer(_value);
-
-    // Update the balances of the sender and recipient
-    balances[msg.sender] -= _value;
-    balances[_to] += _value;
-
-    // Emit a WagyuBought event
-    emit WagyuBought(msg.sender, _to, _value);
-    wagyuUnavailability(wagyuID);
   }
 }
