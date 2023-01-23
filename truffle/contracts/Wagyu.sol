@@ -76,6 +76,10 @@ contract WagyuInfo {
   function getDetailedWagyuInfo(string memory wagyuID) public view returns(Manufacturer memory){
     return manufacturer[wagyuID];
   }
+
+  function getwagyuID() public view returns (string[] memory){
+    return wID;
+  }
   
   //Declare initial value of WagyuInfo block
   constructor(){
