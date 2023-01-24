@@ -1,8 +1,9 @@
 import { useState } from "react";
 import "../styles/Add Wagyu.css";
 import NavBar from "./NavBar";
-import Wagyu from 'C:/Users/LeonyX/Documents/Blockchain/.vscode/GroupProject/mywagyu/src/truffle/build/contracts/WagyuInfo.json';
+import Wagyu from '../truffle/build/contracts/WagyuInfo.json';
 import { ethers } from "ethers";
+import { networks } from "../truffle/truffle-config.js";
 
 //declare the Wagyu.sol contract address inside the variable
 const wagyuinfoaddress = '0xE58494AB58B950F5857605B1054c0262C02cd5cB'

@@ -1,44 +1,62 @@
+import { useEffect, useState } from "react";
 import "../styles/Homepage.css"
 import NavBar from "./NavBar"
 import ItemCard from "./Item Card"
 import data from "./Data Sample.json";
-import Wagyu from 'C:/Users/LeonyX/Documents/Blockchain/.vscode/GroupProject/mywagyu/src/truffle/build/contracts/WagyuInfo.json';
+import Wagyu from '../truffle/build/contracts/WagyuInfo.json';
 import { ethers } from "ethers";
 
 //declare the Wagyu.sol contract address inside the variable
-const wagyuinfoaddress = '0xE58494AB58B950F5857605B1054c0262C02cd5cB'
+const wagyuinfoaddress = '0x15254c7892B164C6102C8c20218233386f6E82C2'
 
 const Homepage = () => {
+    const [wagyuData, setWagyuData] = useState({});
 
-    async function buyWagyu(key) {
+    useEffect(() => {
+        buyWagyu();
+    }, []);
+
+    async function buyWagyu() {
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const signer = provider.getSigner();
         const contract = new ethers.Contract(wagyuinfoaddress, Wagyu.abi, signer);
         try {
             const wagyuID = await contract.getwagyuID();
-            for(let i=0; i<wagyuID.length; i++){
-                const wagyudata = await contract.getWagyuInfo(wagyuID[i]);
-                const manudata = await contract.getDetailedWagyuInfo(wagyuID[i]);
-                const objects = [
-                    {id: wagyuID[i], wagyudata, manudata}
-                ];
-            }
-
-        } catch(error){
-            alert(error)
+            const data = await Promise.all(wagyuID.map(async (id) => {
+                const wagyudata = await contract.getWagyuInfo(id);
+                const manudata = await contract.getDetailedWagyuInfo(id);
+                return {
+                    id,
+                    age: wagyudata.age,
+                    breed: wagyudata.breed,
+                    grade: wagyudata.grade,
+                    farmerName: wagyudata.farmerName,
+                    farmLoc: wagyudata.farmLoc,
+                    halalCareMethod: wagyudata.halalCareMethod,
+                    butcherName: manudata.butcherName,
+                    butcherLoc: manudata.butcherLoc,
+                    halalslaughterMethod: manudata.halalslaughterMethod,
+                    imgRef: manudata.imgRef,
+                    dateDistribute: manudata.dateDistribute,
+                    availability: manudata.availability
+                }
+            }));
+            setWagyuData(data.reduce((acc,item) => ({...acc, [item.id]: item}), {}));
+        } catch(e) {
+            console.error(e);
         }
-        
-
-        /*Know your wagyu here*/ 
     }
+    
+
+    console.log(wagyuData);
 
     return (
         <div className="navbar-container">
             <NavBar/>
             <div className="card-container">
-                {Object.keys(data).map((key)=>{
-                  return <ItemCard data={data[key]} key={key} buyWagyu={buyWagyu(key)}/>
-                })}
+            {Object.keys(wagyuData).map((key) => {
+                return <ItemCard data={wagyuData[key]} key={key}/>
+            })}
             </div>
         </div>
     )
