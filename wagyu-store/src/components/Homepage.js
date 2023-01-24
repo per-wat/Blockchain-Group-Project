@@ -2,9 +2,9 @@ import "../styles/Homepage.css"
 import NavBar from "./NavBar"
 import ItemCard from "./Item Card"
 import data from "./Data Sample.json";
-import Wagyu from 'C:/Users/LeonyX/Documents/Blockchain/.vscode/GroupProject/mywagyu/src/truffle/build/contracts/WagyuInfo.json';
+import Wagyu from 'WagyuInfo.json';
 import { ethers } from "ethers";
-import { networks } from "../truffle/truffle-config";
+import { networks } from "truffle-config.js";
 
 //declare the Wagyu.sol contract address inside the variable
 const wagyuinfoaddress = '0x17095DfA4841a4d61Bbc0aACC915dc4e3868E02C'
