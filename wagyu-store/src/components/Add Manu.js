@@ -6,7 +6,7 @@ import { ethers } from "ethers";
 import { networks } from "../truffle/truffle-config.js";
 
 //declare the Wagyu.sol contract address inside the variable
-const wagyuinfoaddress = '0x77227F63aEc238Cb458198B673386a4DaE93e4bB'
+const wagyuinfoaddress = '0xE58494AB58B950F5857605B1054c0262C02cd5cB'
 
 const AddManu = () => {
     const [wagyuId, setWagyuId] = useState("");
@@ -19,7 +19,7 @@ const AddManu = () => {
 
     //function that connect the front end with the smart contract and send addmanuinfo data into the blockchain
     async function addmanu() {
-        const provider = new ethers.providers.JsonRpcProvider(networks="http://localhost:7545");
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
         const signer = provider.getSigner();
         const contract = new ethers.Contract(wagyuinfoaddress, Wagyu.abi, signer);
         const addmanuinfo = await contract.addManufacturer(wagyuId, butcherName, butcherLoc, isHalal, imgRef, dateDis);
