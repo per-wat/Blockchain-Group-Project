@@ -3,7 +3,7 @@ pragma solidity >=0.4.22 <0.9.0;
 
 //data structure for Wagyu Cow Care Information
 struct Wagyu {
-  uint256 age;
+  string age;
   string breed;
   string grade;
   string farmerName;
@@ -38,11 +38,11 @@ contract WagyuInfo {
   }
 
   //this function is to add information Wagyu Cow Care into struct Wagyu
-  function addWagyu (string memory wagyuID, uint256 age, string memory breed, string memory grade, string memory farmerName,  string memory farmLoc, 
+  function addWagyu (string memory wagyuID, string memory _age, string memory breed, string memory grade, string memory farmerName,  string memory farmLoc, 
   string memory halalCareMethod) public {
     wID.push(wagyuID);
     Wagyu memory newWagyu;
-    newWagyu.age = age;
+    newWagyu.age = _age;
     newWagyu.breed = breed;
     newWagyu.grade = grade;
     newWagyu.farmerName = farmerName;
@@ -78,14 +78,13 @@ contract WagyuInfo {
     return manufacturer[wagyuID];
   }
 
-  //Function to retrieve all ID of wagyu available inside blockchain
   function getwagyuID() public view returns (string[] memory){
     return wID;
   }
   
   //Declare initial value of WagyuInfo block
   constructor(){
-    addWagyu("CowA101", 12, "Japanese Black", "A1", "Ahmad","Japan","halal");
+    addWagyu("CowA101", "12", "Japanese Black", "A1", "Ahmad","Japan","halal");
     addManufacturer("CowA101", "Rahim", "Japan", "Haram", "CowA101.webp", "12 Dec 2020");
   }
 }
