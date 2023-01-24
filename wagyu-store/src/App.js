@@ -26,8 +26,12 @@ function App() {
             <Route path="/profile" element={
               <PrivateRoute roles={[]}><Profile/></PrivateRoute>
             } />
-            <Route path="/addwagyu" element={<AddWagyu/>} />
-            <Route path="/addmanu" element={<AddManu/>} />
+            <Route path="/addwagyu" element={
+              <PrivateRoute roles={["farmer"]}><AddWagyu/></PrivateRoute>
+            } />
+            <Route path="/addmanu" element={
+              <PrivateRoute roles={["manufacturer"]}><AddManu/></PrivateRoute>
+            } />
           </Routes>
         </Router>
       </AuthProvider>
