@@ -14,7 +14,14 @@ function ItemCard(props) {
     farmerName, farmLoc, halalCareMethod,
     butcherName, butcherLoc, halalslaughterMethod,
     imgRef, dateDistribute, availability} = props.data;
+  const { buyWagyu } = props;
   const [openPopup, setOpenPopup] = useState(false);
+
+  function handleBuy() {
+    if(buyWagyu) {
+      buyWagyu();
+    }
+  }
 
   return (
     <div>
@@ -84,7 +91,7 @@ function ItemCard(props) {
               scale="60"
             ></lord-icon>
           </span>
-          <div className="card-button">
+          <div className="card-button" onClick={handleBuy}>
             <lord-icon
               src="https://cdn.lordicon.com/slkvcfos.json"
               trigger="hover"

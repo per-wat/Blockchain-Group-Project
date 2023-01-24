@@ -5,12 +5,17 @@ import data from "./Data Sample.json";
 
 const Homepage = () => {
 
+    function buyWagyu(key) {
+        console.log(key);
+        /*Buy you wagyu hear*/ 
+    }
+
     return (
         <div className="navbar-container">
             <NavBar/>
             <div className="card-container">
-                {Object.values(data).map((item)=>{
-                  return <ItemCard data={item} key={item.cowId}/>
+                {Object.keys(data).map((key)=>{
+                  return <ItemCard data={data[key]} key={key} buyWagyu={buyWagyu(key)}/>
                 })}
             </div>
         </div>
