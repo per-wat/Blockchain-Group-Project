@@ -1,6 +1,12 @@
 import { useState } from "react";
 import "../styles/Add Manu.css";
 import NavBar from "./NavBar";
+import Wagyu from 'C:/Users/LeonyX/Documents/Blockchain/.vscode/GroupProject/mywagyu/src/truffle/build/contracts/WagyuInfo.json';
+import { ethers } from "ethers";
+import { networks } from "../truffle/truffle-config";
+
+//declare the Wagyu.sol contract address inside the variable
+const wagyuinfoaddress = '0x77227F63aEc238Cb458198B673386a4DaE93e4bB'
 
 const AddManu = () => {
     const [wagyuId, setWagyuId] = useState("");
@@ -9,6 +15,29 @@ const AddManu = () => {
     const [isHalal, setIsHalal] = useState("");
     const [imgRef, setImgRef] = useState("");
     const [dateDis, setDateDis] = useState("");
+
+
+    //function that connect the front end with the smart contract and send addmanuinfo data into the blockchain
+    async function addmanu() {
+        const provider = new ethers.providers.JsonRpcProvider(networks="http://localhost:7545");
+        const signer = provider.getSigner();
+        const contract = new ethers.Contract(wagyuinfoaddress, Wagyu.abi, signer);
+        const addmanuinfo = await contract.addManufacturer(wagyuId, butcherName, butcherLoc, isHalal, imgRef, dateDis);
+        await addmanuinfo.wait();
+        console.log(addmanuinfo);
+        alert("Wagyu manufacturer information successfully added")
+      }
+
+    //once pressed on addmanu button, this const will ask for confirmation from user before proceed to addmanu function
+      const submitbutton = () => {
+        const answer = window.confirm("Are you sure you want to submit the Wagyu manufacturer details?");
+        if (answer) {
+          addmanu();
+        } else {
+          console.log("Manufacturer information was not uploaded.");
+        }
+  
+      }
 
     const handleChange = (e) => {
         if (e.target.name === "wagyuId") {
@@ -103,7 +132,7 @@ const AddManu = () => {
                     </div>
                     <div>
                         <span className="farmer-btn">
-                            <button class="btn">
+                            <button class="btn" onClick={submitbutton}>
                                 <span class="btn-text-one">Add Wagyu</span>
                                 <span class="btn-text-two">
                                     <svg

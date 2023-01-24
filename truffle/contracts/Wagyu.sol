@@ -57,13 +57,14 @@ contract WagyuInfo {
   }
 
   //Declare a function to add information of Wagyu Meat Processing into struct Manufacturer
-  function addManufacturer (string memory wagyuID, string memory butcherName, string memory halalslaughterMethod, string memory imgRef, string memory dateDistribute) public {
+  function addManufacturer (string memory wagyuID, string memory butcherName, string memory butcherLoc, string memory halalslaughterMethod, string memory imgRef, string memory dateDistribute) public {
     Manufacturer memory newManufacturer;
     wagyuAvailability(wagyuID);
     newManufacturer.butcherName = butcherName;
+    newManufacturer.butcherLoc = butcherLoc;
     newManufacturer.halalslaughterMethod = halalslaughterMethod;
-    newManufacturer.dateDistribute = dateDistribute;
     newManufacturer.imgRef = imgRef;
+    newManufacturer.dateDistribute = dateDistribute;
     manufacturer[wagyuID] = newManufacturer;
   } 
 
@@ -83,7 +84,7 @@ contract WagyuInfo {
   
   //Declare initial value of WagyuInfo block
   constructor(){
-    addWagyu("CowA101", 12, "A1", "Japanese Black", "Ahmad","Japan","halal");
-    addManufacturer("CowA101", "Rahim", "Haram","A1refpic","12 Dec 2020");
+    addWagyu("CowA101", 12, "Japanese Black", "A1", "Ahmad","Japan","halal");
+    addManufacturer("CowA101", "Rahim", "Japan", "Haram", "CowA101.webp", "12 Dec 2020");
   }
 }

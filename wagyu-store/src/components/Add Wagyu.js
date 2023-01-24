@@ -1,6 +1,12 @@
 import { useState } from "react";
 import "../styles/Add Wagyu.css";
 import NavBar from "./NavBar";
+import Wagyu from 'C:/Users/LeonyX/Documents/Blockchain/.vscode/GroupProject/mywagyu/src/truffle/build/contracts/WagyuInfo.json';
+import { ethers } from "ethers";
+import { networks } from "../truffle/truffle-config";
+
+//declare the Wagyu.sol contract address inside the variable
+const wagyuinfoaddress = '0x77227F63aEc238Cb458198B673386a4DaE93e4bB'
 
 const AddWagyu = () => {
     const [wagyuId, setWagyuId] = useState("");
@@ -11,7 +17,30 @@ const AddWagyu = () => {
     const [farmLoc, setFarmLoc] = useState("");
     const [isHalal, setIsHalal] = useState("");
 
+    //function that connect the front end with the smart contract and send addwagyuinfo data into the blockchain
+    async function addwagyu() {
+      const provider = new ethers.providers.JsonRpcProvider(networks="http://localhost:7545");
+      const signer = provider.getSigner();
+      const contract = new ethers.Contract(wagyuinfoaddress, Wagyu.abi, signer);
+      const addwagyuinfo = await contract.addWagyu(wagyuId, age, breed, grade, farmerName, farmLoc, isHalal);
+      await addwagyuinfo.wait();
+      console.log(addwagyuinfo);
+      alert("Wagyu livestock information successfully added")
+    }
+
+    //once pressed on addwagyu button, this const will ask for confirmation from user before proceed to addwagyu function
+    const submitbutton = () => {
+      const answer = window.confirm("Are you sure you want to submit the Wagyu livestock details?");
+      if (answer) {
+        addwagyu();
+      } else {
+        console.log("Livestock information was not uploaded.");
+      }
+
+    }
+
     const handleChange = (e) => {
+        e.preventDefault();
         if (e.target.name === "wagyuId") {
             setWagyuId(e.target.value);
         } else if (e.target.name === "age") {
@@ -28,6 +57,8 @@ const AddWagyu = () => {
             setIsHalal(e.target.value);
         }
     };
+
+    
 
     return (
         <div className="navbar-container farmer">
@@ -116,7 +147,7 @@ const AddWagyu = () => {
                     </div>
                     <div>
                         <span className="farmer-btn">
-                            <button class="btn">
+                            <button class="btn" onClick={submitbutton}>
                                 <span class="btn-text-one">Add Wagyu</span>
                                 <span class="btn-text-two">
                                     <svg
