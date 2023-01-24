@@ -6,7 +6,6 @@ import data from "./Data Sample.json";
 const Homepage = () => {
 
     function buyWagyu(key) {
-        console.log(key);
         /*Buy you wagyu hear*/ 
     }
 
