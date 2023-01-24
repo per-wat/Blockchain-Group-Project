@@ -6,6 +6,7 @@ import "./Wagyu.sol";
 contract WagyuTransaction{
 
   // Mapping of addresses to balance
+  address public owner;
   mapping(address => uint256) public balances;
   mapping(string => Manufacturer) public manufacturer;
 
@@ -24,10 +25,10 @@ contract WagyuTransaction{
   }
 
   // Function to make a transaction from one address to another
-  function requestBuy(string memory wagyuID, address payable _to, uint256 _value) public payable isBought(wagyuID){
+  function requestBuy(string memory wagyuID, address payable _to, uint _value) public payable isBought(wagyuID){
 
     // Check that the sender has enough balance to make the transaction
-    require(msg.value >= _value, "Insufficient balance");
+    require(msg.value <= _value, "Insufficient balance");
     
     // Transfer the Ether from the sender to the recipient
     _to.transfer(_value);
