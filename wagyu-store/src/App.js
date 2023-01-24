@@ -22,11 +22,11 @@ function App() {
             <Route path="/navbar" element={<NavBar/>} />
             <Route path="/itemcard" element={<ItemCard/>} />
             <Route path="/login" element={<Login/>} />
-            <Route path="/register" element={<Register/>} />
-            <Route path="/profile" element={<Profile/>} />
-            <Route path="/addwagyu" element={
-              <PrivateRoute roles={[""]}><AddWagyu/></PrivateRoute>
+            <Route path="/register/:role" element={<Register/>} />
+            <Route path="/profile" element={
+              <PrivateRoute roles={[""]}><Profile/></PrivateRoute>
             } />
+            <Route path="/addwagyu" element={<AddWagyu/>} />
             <Route path="/addmanu" element={<AddManu/>} />
           </Routes>
         </Router>
