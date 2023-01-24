@@ -2,7 +2,8 @@
     padding: 0px;
 }
 
-.lord-size-error {
+.lord-size-error,
+.lord-size-success {
     width: 100px;
     height: 100px;
 }
