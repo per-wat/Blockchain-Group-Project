@@ -45,6 +45,7 @@ function ItemCard(props) {
             gasLimit: 50000,
           };
           await signer.sendTransaction(tx);
+          alert("Successfully bought")
         } catch (error) {
           console.log(error);
         }
