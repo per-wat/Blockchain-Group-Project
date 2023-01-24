@@ -78,6 +78,7 @@ contract WagyuInfo {
     return manufacturer[wagyuID];
   }
 
+  //Function to retrieve all ID of wagyu available inside blockchain
   function getwagyuID() public view returns (string[] memory){
     return wID;
   }
