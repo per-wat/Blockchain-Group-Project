@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, firestore } from "./Firebase";
 import { doc, setDoc} from "firebase/firestore";
 import Popup from "reactjs-popup";
@@ -19,7 +19,7 @@ function Register() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    const [openPopup, setOpenPopup] = useState(true);
+    const [openPopup, setOpenPopup] = useState(false);
     const { role } = useParams();
     const navigate = useNavigate();
 
