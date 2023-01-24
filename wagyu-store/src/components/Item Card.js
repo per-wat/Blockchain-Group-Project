@@ -4,7 +4,7 @@ import "../styles/Item Card.css";
 import "../styles/variables.css";
 import lottie from "lottie-web";
 import { defineElement } from "lord-icon-element";
-import Transaction from 'C:/Users/LeonyX/Documents/Blockchain/.vscode/GroupProject/mywagyu/src/truffle/build/contracts/WagyuTransaction.json';
+import Transaction from 'Transaction.json';
 import { ethers } from "ethers";
 
 <script src="https://cdn.lordicon.com/fudrjiwc.js"></script>;
