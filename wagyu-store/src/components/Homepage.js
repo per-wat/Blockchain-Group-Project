@@ -2,32 +2,34 @@ import "../styles/Homepage.css"
 import NavBar from "./NavBar"
 import ItemCard from "./Item Card"
 import data from "./Data Sample.json";
-import Wagyu from 'WagyuInfo.json';
+import Wagyu from 'C:/Users/LeonyX/Documents/Blockchain/.vscode/GroupProject/mywagyu/src/truffle/build/contracts/WagyuInfo.json';
 import { ethers } from "ethers";
-import { networks } from "truffle-config.js";
 
 //declare the Wagyu.sol contract address inside the variable
-const wagyuinfoaddress = '0x17095DfA4841a4d61Bbc0aACC915dc4e3868E02C'
+const wagyuinfoaddress = '0xE58494AB58B950F5857605B1054c0262C02cd5cB'
 
 const Homepage = () => {
 
     async function buyWagyu(key) {
-        const provider = new ethers.providers.JsonRpcProvider(networks="http://localhost:7545");
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
         const signer = provider.getSigner();
         const contract = new ethers.Contract(wagyuinfoaddress, Wagyu.abi, signer);
-        console.log(key);
         try {
-            const wagyudata = await contract.getWagyuInfo(key);
-            const manudata = await contract.getDetailedWagyuInfo(key);
+            const wagyuID = await contract.getwagyuID();
+            for(let i=0; i<wagyuID.length; i++){
+                const wagyudata = await contract.getWagyuInfo(wagyuID[i]);
+                const manudata = await contract.getDetailedWagyuInfo(wagyuID[i]);
+                const objects = [
+                    {id: wagyuID[i], wagyudata, manudata}
+                ];
+            }
 
-            console.log(wagyudata);
-            console.log(manudata)
         } catch(error){
             alert(error)
         }
         
 
-        /*Buy you wagyu hear*/ 
+        /*Know your wagyu here*/ 
     }
 
     return (

@@ -1,8 +1,8 @@
 {
     "CowA101": {
         "age": "12",
-        "breed": "A1",
-        "grade": "Japanese Black",
+        "breed": "Japanese Black",
+        "grade": "A1",
         "farmerName": "Ahmad",
         "farmLoc": "Japan",
         "halalCareMethod": "halal",
@@ -15,8 +15,8 @@
     },
     "CowA102": {
         "age": "13",
-        "breed": "A2",
-        "grade": "Wagyu",
+        "breed": "Wagyu",
+        "grade": "A2",
         "farmerName": "John",
         "farmLoc": "Australia",
         "halalCareMethod": "halal",
@@ -29,8 +29,8 @@
     },
     "CowA103": {
         "age": "15",
-        "breed": "A3",
-        "grade": "Angus",
+        "breed": "Angus",
+        "grade": "A3",
         "farmerName": "Jenna",
         "farmLoc": "USA",
         "halalCareMethod": "non-halal",
@@ -43,8 +43,8 @@
     },
     "CowA104": {
         "age": "18",
-        "breed": "A4",
-        "grade": "Hereford",
+        "breed": "Hereford",
+        "grade": "A4",
         "farmerName": "Hannah",
         "farmLoc": "New Zealand",
         "halalCareMethod": "halal",
@@ -57,8 +57,8 @@
     },
     "CowA105": {
         "age": "14",
-        "breed": "A1",
-        "grade": "Australian Black",
+        "breed": "Australian Black",
+        "grade": "A1",
         "farmerName": "John",
         "farmLoc": "Australia",
         "halalCareMethod": "halal",
@@ -71,8 +71,8 @@
     },
     "CowA106": {
         "age": "16",
-        "breed": "A1",
-        "grade": "American Black",
+        "breed": "American Black",
+        "grade": "A1",
         "farmerName": "Steve",
         "farmLoc": "USA",
         "halalCareMethod": "halal",
