@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "../styles/Profile.css";
 import NavBar from "./NavBar";
 import { useAuth } from "./AuthContext";
@@ -14,7 +14,6 @@ defineElement(lottie.loadAnimation);
 const Profile = () => {
     const {user} = useAuth();
     const [editing, setEditing] = useState(false);
-    const [updating, setUpdating] = useState(false);
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [address, setAddress] = useState("");
@@ -34,7 +33,6 @@ const Profile = () => {
             setPostcode(data.postcode);
             setContact(data.contact);
         });
-        console.log("heh");
     },[])
 
     const handleEdit = async () => {

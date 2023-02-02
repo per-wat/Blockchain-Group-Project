@@ -49,16 +49,13 @@ const Homepage = () => {
         }
     }
 }
-    
-
-    console.log(wagyuData);
 
     return (
         <div className="navbar-container">
             <NavBar/>
             <div className="card-container">
-            {Object.keys(wagyuData).map((key) => {
-                return <ItemCard data={wagyuData[key]} key={key}/>
+            {Object.keys(data).map((key) => {
+                return <ItemCard data={data[key]} key={key}/>
             })}
             </div>
         </div>
