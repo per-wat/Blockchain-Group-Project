@@ -7,7 +7,7 @@ import Wagyu from '../truffle/build/contracts/WagyuInfo.json';
 import { ethers } from "ethers";
 
 //declare the Wagyu.sol contract address inside the variable
-const wagyuinfoaddress = '0x15254c7892B164C6102C8c20218233386f6E82C2'
+const wagyuinfoaddress = '0x285084B5b4c43f1d6E0E5cacCF2285B1d7689d04'
 
 const Homepage = () => {
     const [wagyuData, setWagyuData] = useState({});
@@ -17,6 +17,8 @@ const Homepage = () => {
     }, []);
 
     async function buyWagyu() {
+        if (typeof window.ethereum !== "undefined") {
+            await window.ethereum.send("eth_requestAccounts");
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const signer = provider.getSigner();
         const contract = new ethers.Contract(wagyuinfoaddress, Wagyu.abi, signer);
@@ -46,6 +48,7 @@ const Homepage = () => {
             console.error(e);
         }
     }
+}
     
 
     console.log(wagyuData);

@@ -13,10 +13,10 @@ defineElement(lottie.loadAnimation);
 
 
 //declare the Wagyu.sol contract address inside the variable
-const wagyutransaddress = '0xd67893f7daCC460AA3fd507eaC497D195901fc6B'
+const wagyutransaddress = '0xbCc9cA0850D875563350f3242d66b1439EF0A416'
 
-//default owner of store address
-const wagyustoreaddress = '0x1a7082A07Ea0a75a78c330E31a8E080610c4dc12'
+//default owner of store address, can declare as your own wallet address
+const wagyustoreaddress = '0x330e92dD4F5b5Ab62026FC880D132e1241E9DC10'
 
 //USD to ether conversion value
 const ethervalue = '0.006'
