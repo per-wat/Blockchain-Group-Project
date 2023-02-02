@@ -9,11 +9,11 @@
         "butcherName": "Rahim",
         "butcherLoc": "Malaysia",
         "halalslaughterMethod": "Haram",
-        "imgRef": "../assets/CowA101.webp",
+        "imgRef": "CowA101.webp",
         "dateDistribute": "12 Dec 2020",
         "availability": false
     },
-    "CowA102": {
+    "CowA201": {
         "age": "13",
         "breed": "Wagyu",
         "grade": "A2",
@@ -23,11 +23,11 @@
         "butcherName": "David",
         "butcherLoc": "Australia",
         "halalslaughterMethod": "Halal",
-        "imgRef": "../assets/CowA102.webp",
+        "imgRef": "CowA201.webp",
         "dateDistribute": "15 Dec 2020",
         "availability": true
     },
-    "CowA103": {
+    "CowA301": {
         "age": "15",
         "breed": "Angus",
         "grade": "A3",
@@ -37,11 +37,11 @@
         "butcherName": "Liam",
         "butcherLoc": "USA",
         "halalslaughterMethod": "non-halal",
-        "imgRef": "../assets/CowA103.webp",
+        "imgRef": "CowA301.webp",
         "dateDistribute": "18 Dec 2020",
         "availability": true
     },
-    "CowA104": {
+    "CowA401": {
         "age": "18",
         "breed": "Hereford",
         "grade": "A4",
@@ -51,11 +51,11 @@
         "butcherName": "Emily",
         "butcherLoc": "New Zealand",
         "halalslaughterMethod": "Halal",
-        "imgRef": "../assets/CowA104.webp",
+        "imgRef": "CowA401.webp",
         "dateDistribute": "20 Dec 2020",
         "availability": false
     },
-    "CowA105": {
+    "CowA102": {
         "age": "14",
         "breed": "Australian Black",
         "grade": "A1",
@@ -65,11 +65,11 @@
         "butcherName": "Michael",
         "butcherLoc": "Australia",
         "halalslaughterMethod": "Halal",
-        "imgRef": "../assets/CowA105.webp",
+        "imgRef": "CowA102.webp",
         "dateDistribute": "12 Dec 2020",
         "availability": true
     },
-    "CowA106": {
+    "CowA103": {
         "age": "16",
         "breed": "American Black",
         "grade": "A1",
@@ -79,7 +79,7 @@
         "butcherName": "Bill",
         "butcherLoc": "USA",
         "halalslaughterMethod": "Halal",
-        "imgRef": "../assets/CowA106.webp",
+        "imgRef": "CowA103.webp",
         "dateDistribute": "12 Dec 2020",
         "availability": true
     }

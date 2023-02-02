@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Popup from "reactjs-popup";
+import Loading from "./Loading";
 import "../styles/Item Card.css";
 import "../styles/variables.css";
+import { storage } from "./Firebase";
+import { ref, getDownloadURL } from "firebase/storage";
 import lottie from "lottie-web";
 import { defineElement } from "lord-icon-element";
 import Transaction from '../truffle/build/contracts/WagyuTransaction.json';
@@ -26,8 +29,8 @@ function ItemCard(props) {
     farmerName, farmLoc, halalCareMethod,
     butcherName, butcherLoc, halalslaughterMethod,
     imgRef, dateDistribute, availability} = props.data;
-  const { buyWagyu } = props;
   const [openPopup, setOpenPopup] = useState(false);
+  const [imgUrl, setImgUrl] = useState(null);
 
   async function handleBuy() {
     if (typeof window.ethereum !== "undefined") {
@@ -54,6 +57,21 @@ function ItemCard(props) {
    }
   }
 
+  useEffect(() => {
+    const fetchImage = async () => {
+      getDownloadURL(ref(storage, ('wagyuImages/' + imgRef)))
+        .then((url) => {
+          setImgUrl(url);
+        });
+    };
+
+    fetchImage();
+  }, []);
+
+  if(!imgUrl) {
+    return <Loading/>
+  }
+
   return (
     <div>
       <Popup
@@ -65,7 +83,7 @@ function ItemCard(props) {
         <div className="modal-container">
           <div className="modal-img">
             <img
-              src= {require("../assets/CowA101.webp")}
+              src= {imgUrl}
               alt={grade}
             />
           </div>
@@ -93,7 +111,7 @@ function ItemCard(props) {
       <div className="card">
         <div className="card-img">
           <img
-            src= {require("../assets/CowA101.webp")}
+            src= {imgUrl}
             alt={grade}
           />
         </div>
